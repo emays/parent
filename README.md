@@ -1,6 +1,10 @@
-## Common Parent
+# Common Parent
+
+[![Build](https://github.com/emays/parent/actions/workflows/maven.yml/badge.svg)](https://github.com/emays/parent/actions/workflows/maven.yml)
 
 Parent for common dependencies and plugins
+
+Available at [Maven Central](https://central.sonatype.com/artifact/io.github.emays/parent)
 
 ## License
 
