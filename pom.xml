@@ -43,9 +43,9 @@
 		<slf4j.version>2.0.17</slf4j.version>
 		<log4j.version>2.25.3</log4j.version>
 		<!-- other deoendencies -->
-		<jackson.version>2.20.1</jackson.version>
-		<jersey.version>4.0.0</jersey.version>
-		<jetty.version>12.1.5</jetty.version>
+		<jackson.version>2.21.0</jackson.version>
+		<jersey.version>4.0.2</jersey.version>
+		<jetty.version>12.1.6</jetty.version>
 		<poi.version>5.5.1</poi.version>
 		<!-- org.apache.maven.plugins -->
 		<maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
@@ -73,9 +73,9 @@
 		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
 		<license-maven-plugin.version>2.7.1</license-maven-plugin.version>
 		<tidy-maven-plugin.version>1.4.0</tidy-maven-plugin.version>
-		<versions-maven-plugin.version>2.20.1</versions-maven-plugin.version>
+		<versions-maven-plugin.version>2.21.0</versions-maven-plugin.version>
 		<!-- other plugins -->
-		<central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
+		<central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
 		<jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
 	</properties>
 
