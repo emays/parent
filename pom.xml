@@ -38,14 +38,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>25</java.version>
 		<!-- test dependencies -->
-		<junit.version>6.0.1</junit.version>
+		<junit.version>6.0.2</junit.version>
 		<!-- logging dependencies -->
 		<slf4j.version>2.0.17</slf4j.version>
 		<log4j.version>2.25.3</log4j.version>
 		<!-- other deoendencies -->
-		<jackson.version>2.20.1</jackson.version>
-		<jersey.version>4.0.0</jersey.version>
-		<jetty.version>12.1.5</jetty.version>
+		<jackson.version>2.21.0</jackson.version>
+		<jersey.version>4.0.2</jersey.version>
+		<jetty.version>12.1.6</jetty.version>
 		<poi.version>5.5.1</poi.version>
 		<!-- org.apache.maven.plugins -->
 		<maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
@@ -70,12 +70,12 @@
 		<maven-surefire-reports-plugin.version>3.5.4</maven-surefire-reports-plugin.version>
 		<maven-war-plugin.version>3.5.1</maven-war-plugin.version>
 		<!-- org.codehaus.mojo plugins -->
-		<exec-maven-plugin.version>3.6.2</exec-maven-plugin.version>
-		<license-maven-plugin.version>2.7.0</license-maven-plugin.version>
+		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
+		<license-maven-plugin.version>2.7.1</license-maven-plugin.version>
 		<tidy-maven-plugin.version>1.4.0</tidy-maven-plugin.version>
-		<versions-maven-plugin.version>2.20.1</versions-maven-plugin.version>
+		<versions-maven-plugin.version>2.21.0</versions-maven-plugin.version>
 		<!-- other plugins -->
-		<central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
+		<central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
 		<jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
 	</properties>
 
@@ -112,7 +112,7 @@
 			<dependency>
 				<groupId>com.github.haifengl</groupId>
 				<artifactId>smile-nlp</artifactId>
-				<version>5.0.1</version>
+				<version>5.1.0</version>
 			</dependency>
 			<dependency>
 				<groupId>jakarta.activation</groupId>
@@ -170,6 +170,38 @@
 				<version>${jersey.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<!-- measure dependencies -->
+			<dependency>
+				<groupId>javax.measure</groupId>
+				<artifactId>unit-api</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>si.uom</groupId>
+				<artifactId>si-units</artifactId>
+				<version>2.2.3</version>
+			</dependency>
+			<dependency>
+				<groupId>systems.uom</groupId>
+				<artifactId>systems-common</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>tech.units</groupId>
+				<artifactId>indriya</artifactId>
+				<version>2.2.3</version>
+			</dependency>
+			<!-- tempest dependencies -->
+			<dependency>
+				<groupId>net.iakovlev</groupId>
+				<artifactId>timeshape</artifactId>
+				<version>2025b.28</version>
+			</dependency>
+			<dependency>
+				<groupId>org.shredzone.commons</groupId>
+				<artifactId>commons-suncalc</artifactId>
+				<version>3.11</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
