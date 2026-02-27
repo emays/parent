@@ -43,7 +43,7 @@
 		<slf4j.version>2.0.17</slf4j.version>
 		<log4j.version>2.25.3</log4j.version>
 		<!-- other deoendencies -->
-		<jackson.version>2.21.0</jackson.version>
+		<jackson.version>2.21.1</jackson.version>
 		<jersey.version>4.0.2</jersey.version>
 		<jetty.version>12.1.6</jetty.version>
 		<poi.version>5.5.1</poi.version>
@@ -67,8 +67,8 @@
 		<maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
 		<maven-site-plugin.version>3.21.0</maven-site-plugin.version>
 		<maven-source-plugin.version>3.4.0</maven-source-plugin.version>
-		<maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
-		<maven-surefire-reports-plugin.version>3.5.4</maven-surefire-reports-plugin.version>
+		<maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
+		<maven-surefire-reports-plugin.version>3.5.5</maven-surefire-reports-plugin.version>
 		<maven-war-plugin.version>3.5.1</maven-war-plugin.version>
 		<!-- org.codehaus.mojo plugins -->
 		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
@@ -187,6 +187,13 @@
 				<groupId>systems.uom</groupId>
 				<artifactId>systems-common</artifactId>
 				<version>2.2</version>
+			</dependency>
+			<!--This has provided scope in systems-common with a requires transitive in the module-info-->
+			<dependency>
+				<groupId>systems.uom</groupId>
+				<artifactId>systems-quantity</artifactId>
+				<version>2.2</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>tech.units</groupId>
