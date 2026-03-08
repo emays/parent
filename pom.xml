@@ -45,7 +45,7 @@
 		<!-- other deoendencies -->
 		<jackson.version>2.21.1</jackson.version>
 		<jersey.version>4.0.2</jersey.version>
-		<jetty.version>12.1.6</jetty.version>
+		<jetty.version>12.1.7</jetty.version>
 		<poi.version>5.5.1</poi.version>
 		<!-- org.apache.maven.plugins -->
 		<maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
@@ -63,8 +63,8 @@
 		<maven-jlink-plugin.version>3.2.0</maven-jlink-plugin.version>
 		<maven-project-info-reports-plugin.version>3.9.0</maven-project-info-reports-plugin.version>
 		<maven-release-plugin.version>3.3.1</maven-release-plugin.version>
-		<maven-resources-plugin.version>3.4.0</maven-resources-plugin.version>
-		<maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
+		<maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
+		<maven-shade-plugin.version>3.6.2</maven-shade-plugin.version>
 		<maven-site-plugin.version>3.21.0</maven-site-plugin.version>
 		<maven-source-plugin.version>3.4.0</maven-source-plugin.version>
 		<maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
@@ -113,7 +113,7 @@
 			<dependency>
 				<groupId>com.github.haifengl</groupId>
 				<artifactId>smile-nlp</artifactId>
-				<version>5.2.0</version>
+				<version>5.2.1</version>
 			</dependency>
 			<dependency>
 				<groupId>jakarta.activation</groupId>
