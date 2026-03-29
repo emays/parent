@@ -37,15 +37,16 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>25</java.version>
+		<skipITs>true</skipITs>
 		<!-- test dependencies -->
-		<junit.version>6.0.2</junit.version>
+		<junit.version>6.0.3</junit.version>
 		<!-- logging dependencies -->
 		<slf4j.version>2.0.17</slf4j.version>
-		<log4j.version>2.25.3</log4j.version>
+		<log4j.version>2.25.4</log4j.version>
 		<!-- other deoendencies -->
-		<jackson.version>2.21.0</jackson.version>
+		<jackson.version>2.21.2</jackson.version>
 		<jersey.version>4.0.2</jersey.version>
-		<jetty.version>12.1.6</jetty.version>
+		<jetty.version>12.1.7</jetty.version>
 		<poi.version>5.5.1</poi.version>
 		<!-- org.apache.maven.plugins -->
 		<maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
@@ -56,19 +57,20 @@
 		<maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
 		<maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
 		<maven-ear-plugin.version>3.4.0</maven-ear-plugin.version>
+		<maven-failsafe-plugin.version>3.5.5</maven-failsafe-plugin.version>
 		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 		<maven-install-plugin.version>3.1.4</maven-install-plugin.version>
 		<maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
 		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
-		<maven-jlink-plugin.version>3.2.0</maven-jlink-plugin.version>
+		<maven-jlink-plugin.version>3.3.0</maven-jlink-plugin.version>
 		<maven-project-info-reports-plugin.version>3.9.0</maven-project-info-reports-plugin.version>
 		<maven-release-plugin.version>3.3.1</maven-release-plugin.version>
-		<maven-resources-plugin.version>3.4.0</maven-resources-plugin.version>
-		<maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
+		<maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
+		<maven-shade-plugin.version>3.6.2</maven-shade-plugin.version>
 		<maven-site-plugin.version>3.21.0</maven-site-plugin.version>
 		<maven-source-plugin.version>3.4.0</maven-source-plugin.version>
-		<maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
-		<maven-surefire-reports-plugin.version>3.5.4</maven-surefire-reports-plugin.version>
+		<maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
+		<maven-surefire-reports-plugin.version>3.5.5</maven-surefire-reports-plugin.version>
 		<maven-war-plugin.version>3.5.1</maven-war-plugin.version>
 		<!-- org.codehaus.mojo plugins -->
 		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
@@ -113,7 +115,7 @@
 			<dependency>
 				<groupId>com.github.haifengl</groupId>
 				<artifactId>smile-nlp</artifactId>
-				<version>5.2.0</version>
+				<version>5.2.2</version>
 			</dependency>
 			<dependency>
 				<groupId>jakarta.activation</groupId>
@@ -188,17 +190,19 @@
 				<artifactId>systems-common</artifactId>
 				<version>2.2</version>
 			</dependency>
+			<!--This has provided scope in systems-common with a requires transitive in the module-info-->
+			<dependency>
+				<groupId>systems.uom</groupId>
+				<artifactId>systems-quantity</artifactId>
+				<version>2.2</version>
+				<scope>provided</scope>
+			</dependency>
 			<dependency>
 				<groupId>tech.units</groupId>
 				<artifactId>indriya</artifactId>
 				<version>2.2.3</version>
 			</dependency>
 			<!-- tempest dependencies -->
-			<dependency>
-				<groupId>net.iakovlev</groupId>
-				<artifactId>timeshape</artifactId>
-				<version>2025b.28</version>
-			</dependency>
 			<dependency>
 				<groupId>org.shredzone.commons</groupId>
 				<artifactId>commons-suncalc</artifactId>
@@ -255,6 +259,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-enforcer-plugin</artifactId>
 					<version>${maven-enforcer-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven-failsafe-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -370,6 +379,34 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+					<useModulePath>false</useModulePath>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+					<skipITs>${skipITs}</skipITs>
+					<useModulePath>false</useModulePath>
+				</configuration>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
@@ -537,6 +574,20 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<id>unit-tests</id>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+					<reportSet>
+						<id>integration-tests</id>
+						<reports>
+							<report>failsafe-report-only</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
