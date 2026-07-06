@@ -491,6 +491,7 @@
 						<id>analyze</id>
 						<phase>verify</phase>
 						<goals>
+							<goal>display-parent-updates</goal>
 							<goal>display-dependency-updates</goal>
 							<goal>display-plugin-updates</goal>
 						</goals>
@@ -564,6 +565,7 @@
 				<reportSets>
 					<reportSet>
 						<reports>
+							<report>parent-updates-report</report>
 							<report>dependency-updates-report</report>
 							<report>plugin-updates-report</report>
 							<report>property-updates-report</report>
