@@ -534,6 +534,16 @@
 							<ignoreUnusedRuntime>true</ignoreUnusedRuntime>
 						</configuration>
 					</execution>
+					<execution>
+						<id>snapshots</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>tree</goal>
+						</goals>
+						<configuration>
+							<includes>:::*-SNAPSHOT</includes>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
